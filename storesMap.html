@@ -1,0 +1,37 @@
+<head>
+  <title>Map of Micromania stores</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon" sizes="16x16 32x32">
+</head>
+
+<body>
+  <h1>
+  	<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+  	Map of Micromania stores
+  </h1>
+
+  {{> export}}
+  {{> map}}
+
+
+</body>
+
+<template name="export">
+  <div class='alert alert-info'>Please select stores directly on the map and click on the button below to download their information</div>
+  <a id='download' class='button btn btn-primary {{#unless counter}} disabled {{/unless}}' data-loading-text="Exporting...">
+  	<span class="glyphicon glyphicon-download" aria-hidden="true"></span>
+  	Download information for {{counter}} stores
+  </a>
+	<a id='clear' class='button btn btn-info {{#unless counter}} disabled {{/unless}}'>
+  	<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  	Clear
+  </a>
+  
+</template>
+
+
+<template name="map">  
+  <div class="map-container box-shadow--2dp">
+    {{> googleMap name="map" options=mapOptions  libraries="places"}}
+  </div>
+</template>  
